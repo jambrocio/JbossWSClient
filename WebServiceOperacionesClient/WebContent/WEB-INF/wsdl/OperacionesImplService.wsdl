@@ -1,0 +1,160 @@
+<?xml version='1.0' encoding='UTF-8'?><wsdl:definitions xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://webservice.com/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:ns1="http://schemas.xmlsoap.org/soap/http" name="OperacionesImplService" targetNamespace="http://webservice.com/">
+  <wsdl:types>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://webservice.com/" elementFormDefault="unqualified" targetNamespace="http://webservice.com/" version="1.0">
+<xs:element name="divide" type="tns:divide"/>
+<xs:element name="divideResponse" type="tns:divideResponse"/>
+<xs:element name="multiplica" type="tns:multiplica"/>
+<xs:element name="multiplicaResponse" type="tns:multiplicaResponse"/>
+<xs:element name="resta" type="tns:resta"/>
+<xs:element name="restaResponse" type="tns:restaResponse"/>
+<xs:element name="suma" type="tns:suma"/>
+<xs:element name="sumaResponse" type="tns:sumaResponse"/>
+<xs:complexType name="suma">
+<xs:sequence>
+<xs:element name="valorNumerico1" type="xs:int"/>
+<xs:element name="valorNumerico2" type="xs:int"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="sumaResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:int"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="resta">
+<xs:sequence>
+<xs:element name="valorNumerico1" type="xs:int"/>
+<xs:element name="valorNumerico2" type="xs:int"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="restaResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:int"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="multiplica">
+<xs:sequence>
+<xs:element name="valorNumerico1" type="xs:int"/>
+<xs:element name="valorNumerico2" type="xs:int"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="multiplicaResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:int"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="divide">
+<xs:sequence>
+<xs:element name="valorNumerico1" type="xs:int"/>
+<xs:element name="valorNumerico2" type="xs:int"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="divideResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:int"/>
+</xs:sequence>
+</xs:complexType>
+</xs:schema>
+  </wsdl:types>
+  <wsdl:message name="divideResponse">
+    <wsdl:part element="tns:divideResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="sumaResponse">
+    <wsdl:part element="tns:sumaResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="resta">
+    <wsdl:part element="tns:resta" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="divide">
+    <wsdl:part element="tns:divide" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="multiplicaResponse">
+    <wsdl:part element="tns:multiplicaResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="suma">
+    <wsdl:part element="tns:suma" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="multiplica">
+    <wsdl:part element="tns:multiplica" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="restaResponse">
+    <wsdl:part element="tns:restaResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:portType name="IOperaciones">
+    <wsdl:operation name="suma">
+      <wsdl:input message="tns:suma" name="suma">
+    </wsdl:input>
+      <wsdl:output message="tns:sumaResponse" name="sumaResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="resta">
+      <wsdl:input message="tns:resta" name="resta">
+    </wsdl:input>
+      <wsdl:output message="tns:restaResponse" name="restaResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="multiplica">
+      <wsdl:input message="tns:multiplica" name="multiplica">
+    </wsdl:input>
+      <wsdl:output message="tns:multiplicaResponse" name="multiplicaResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="divide">
+      <wsdl:input message="tns:divide" name="divide">
+    </wsdl:input>
+      <wsdl:output message="tns:divideResponse" name="divideResponse">
+    </wsdl:output>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="OperacionesImplServiceSoapBinding" type="tns:IOperaciones">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="suma">
+      <soap:operation soapAction="urn:Suma" style="document"/>
+      <wsdl:input name="suma">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="sumaResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="resta">
+      <soap:operation soapAction="urn:Resta" style="document"/>
+      <wsdl:input name="resta">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="restaResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="divide">
+      <soap:operation soapAction="urn:Divide" style="document"/>
+      <wsdl:input name="divide">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="divideResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="multiplica">
+      <soap:operation soapAction="urn:Multiplica" style="document"/>
+      <wsdl:input name="multiplica">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="multiplicaResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="OperacionesImplService">
+    <wsdl:port binding="tns:OperacionesImplServiceSoapBinding" name="OperacionesImplPort">
+      <soap:address location="http://macbook-pro-de-jorge.local:8080/WebServiceOperaciones/Operaciones"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
